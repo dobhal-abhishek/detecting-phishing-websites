@@ -32,5 +32,5 @@ Random forest was giving very good accuracy. We can also try artificial neural n
 
 FEATURE IMPORTANCES
 
-
+![FEATURE IMPORTANCE](https://raw.githubusercontent.com/abhishekdid/PHISHCOOP-phishing-website-detection/master/variable_Importances.png)
 

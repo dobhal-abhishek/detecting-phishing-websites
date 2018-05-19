@@ -16,15 +16,15 @@ Now the training set is used to train the classifier. The classifiers chosen are
 
 We will see which one fits best in our dataset.
 
-### Logistic Regression
+### 1.Logistic Regression
 
 Fitting logistic regression and creating confusion matrix of predicted values and real values I was able to get 92.3 accuracy. Which was good for a logistic regression model.
 
-### SUPPORT VECTOR MACHINE
+### 2.Support Vector Machine
 
 Support vector machine with a rbf kernel and using gridsearchcv to predict best parameters for svm was a really good choice, and fitting the model with predicted best parameters I was able to get 96.47 accuracy which is pretty good.
 
-### RANDOM FOREST CLASSIFICATION
+### 3.Random Forest Classification
 
 Next model I wanted to try was random forest and I will also get features importances using it, again using gridsearchcv to get best parameters and fitting best parameters to it I got very good accuracy 97.26.
 

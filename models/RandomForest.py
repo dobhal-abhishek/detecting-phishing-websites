@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
 
 #----------------importing libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.externals import joblib
+
 
 #importing the dataset
 dataset = pd.read_csv("datasets/phishcoop.csv")
@@ -44,6 +45,11 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 
+
+#pickle file joblib
+joblib.dump(classifier, 'final_models/rf_final.pkl')
+
+
 #-------------Features Importance random forest
 names = dataset.iloc[:,:-1].columns
 importances =classifier.feature_importances_
@@ -52,12 +58,10 @@ indices = np.argsort(-importances)
 var_imp = pd.DataFrame(sorted_importances, names[indices], columns=['importance'])
 
 
+
 #-------------plotting variable importance
 plt.title("Variable Importances")
 plt.barh(np.arange(len(names)), sorted_importances, height = 0.7)
 plt.yticks(np.arange(len(names)), names[indices], fontsize=7)
 plt.xlabel('Relative Importance')
 plt.show()
-
-
-

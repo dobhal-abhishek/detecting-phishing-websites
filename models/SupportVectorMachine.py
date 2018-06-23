@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.svm import SVC
+from sklearn.externals import joblib
 
 #importing the dataset
 dataset = pd.read_csv("datasets/phishcoop.csv")
@@ -38,3 +39,6 @@ y_pred = classifier.predict(x_test)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
+
+#pickle file joblib
+joblib.dump(classifier, 'final_models/svm_final.pkl')

@@ -127,11 +127,11 @@ def port(url):
 
 def https_token(url):
     subDomain, domain, suffix = extract(url)
-    host =subDomain +'.' + domain + '.' + suffix
-    if(host.count('https')):
-        return -1
-    else:
+    host =subDomain +'.' + domain + '.' + suffix 
+    if(host.count('https')): #attacker can trick by putting https in domain part
         return 1
+    else:
+        return -1
 
 def request_url(url):
     try:
@@ -142,6 +142,7 @@ def request_url(url):
         soup = BeautifulSoup(opener, 'lxml')
         imgs = soup.findAll('img', src=True)
         total = len(imgs)
+        
         linked_to_same = 0
         avg =0
         for image in imgs:
@@ -151,6 +152,7 @@ def request_url(url):
                 linked_to_same = linked_to_same + 1
         vids = soup.findAll('video', src=True)
         total = total + len(vids)
+        
         for video in vids:
             subDomain, domain, suffix = extract(video['src'])
             vidDomain = domain
@@ -159,6 +161,7 @@ def request_url(url):
         linked_outside = total-linked_to_same
         if(total!=0):
             avg = linked_outside/total
+            
         if(avg<0.22):
             return -1
         elif(0.22<=avg<=0.61):
@@ -279,7 +282,8 @@ def age_of_domain(url):
             return -1
         else:
             return 1
-    except:
+    except Exception as e:
+        print(e)
         return 0
         
 def dns(url):
@@ -307,12 +311,10 @@ def statistical(url):
     #ongoing
     return 0
 
-def main():
+def main(url):
 
 
-    print("input url to check")
-    url = input()
-
+    
     
     check = [[url_having_ip(url),url_length(url),url_short(url),having_at_symbol(url),
              doubleSlash(url),prefix_suffix(url),sub_domain(url),SSLfinal_State(url),
@@ -325,7 +327,4 @@ def main():
     
     print(check)
     return check
-
-if (__name__ == '__main__'):
-    main()
 

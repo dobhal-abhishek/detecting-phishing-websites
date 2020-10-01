@@ -1,7 +1,7 @@
 # PHISHCOOP phishing website detection
 Detection of phishing websites is a really important safety measure for most of the online platforms. So, as to save a platform with malicious requests from such websites, it is important to have a robust phishing detection system in place.
 
-## DATA SELECTION
+## DATA SELECTION LIKE A EXPERT
 
 The dataset is downloaded from UCI machine learning repository. The dataset contains 31 columns, with 30 features and 1 target. The dataset has 2456 observations.
 

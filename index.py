@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- code: utf-8 -*-
 
 #importing libraries
 from sklearn.externals import joblib
